@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="icon" href="logo.png" />
+        <link rel="stylesheet" href ="styles.css">
+        <script src="javascript.js"></script>
+        <title>SUDOKU</title>
+    </head>
+    <body class= "game-body">
+<!--<body class= "game-body" onresize= "resizeNav();"> -->
+        <div class="nav">
+            <p id="game-title">SUDOKU</p>
+            <div class = "buttons">
+                <button onclick="newGame(); removeNumbers();" class="ng-button" id='ngbtn'> NEW GAME </button>
+                  <!--Adds a space between buttons-->
+                <button onclick="checkGame();" class="check-button"> CHECK </button>
+                
+                <button onclick="show()" class="reset-button">RESET</button>
+                <div id = "content" class="reset-content">
+                    <p>Are you sure you want to reset?</p>
+                    <button id = "yes" onclick="resetGame(this)">Yes</button>
+                    <button id = "no" onclick="show()">No</button>
+                </div>
+                 
+                <!--<button class="options-button">OPTIONS</button> -->           
+            </div>
+        </div>
+
+        <table id="tab">
+            <tr class = "row" id="row1">
+                <td><input type="text" maxlength="1" class= "box" id="a1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c1"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f1"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h1"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i1"></td>
+            </tr>
+            <tr class = "row" id="row2">
+                <td><input type="text" maxlength="1" class= "box" id="a2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c2"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f2"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h2"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i2"></td>
+            </tr>
+            <tr class = "row" id="row3">
+                <td><input type="text" maxlength="1" class= "box" id="a3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c3"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f3"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h3"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i3"></td>
+            </tr>
+            <tr class = "row" id="row4">
+                <td><input type="text" maxlength="1" class= "box" id="a4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c4"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f4"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h4"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i4"></td>
+            </tr>
+            <tr class = "row" id="row5">
+                <td><input type="text" maxlength="1" class= "box" id="a5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c5"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f5"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h5"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i5"></td>
+            </tr>
+            <tr class = "row" id="row6">
+                <td><input type="text" maxlength="1" class= "box" id="a6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c6"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f6"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h6"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i6"></td>
+            </tr>
+            <tr class = "row" id="row7">
+                <td><input type="text" maxlength="1" class= "box" id="a7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c7"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f7"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h7"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i7"></td>
+            </tr>
+            <tr class = "row" id="row8">
+                <td><input type="text" maxlength="1" class= "box" id="a8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c8"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f8"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h8"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i8"></td>
+            </tr>
+            <tr class = "row" id="row9">
+                <td><input type="text" maxlength="1" class= "box" id="a9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="b9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="c9"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="d9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="e9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="f9"></td>
+            
+                <td><input type="text" maxlength="1" class= "box" id="g9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="h9"></td>
+                <td><input type="text" maxlength="1" class= "box" id="i9"></td>
+            </tr>
+        </table>
+        
+        <script>newGame(); removeNumbers();</script>
+        
+        <footer>
+            <p> &copy; 2020 Shaniya Malcolm </p>
+            <p> shaniyasmalcolm@gmail.com </p>
+        </footer>
+
+    </body>
+</html>
