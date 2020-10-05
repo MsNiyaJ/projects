@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href ="style.css">
+        <title>Calculator</title>
+    </head>
+    <body>
+        <script src="calculator.js"></script> 
+        <div class="frame">
+            <input id = "ans" value="0"><br />
+            
+            <button onclick="negation()">&#8314;&#8725;&#8331;</button>
+            <button onclick="cls()">CE</button>
+            <button onclick="cls()">C</button>
+            <button class="operator" id="division" onclick="display('/')">&#247;</button><br />
+            
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button class="operator" id="mult" onclick="display('*')">x</button><br />
+            
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button class="operator" id="minus" onclick="display('-')">–</button><br />
+            
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button class="operator" id="plus" onclick="display('+')">+</button><br />
+            
+            <button id="zero" onclick="display('0')">0</button>
+            <button id="dot" onclick="display('.')">.</button>
+            <button id="equal" onclick="calculate()">=</button>
+        </div>
+    </body>
+</html>
