@@ -282,8 +282,7 @@ function getBlock(id){
 function isBetween(number, range1, range2){
     if(number >= range1 && number <= range2)
         return true;
-    else
-        return false;
+    return false;
 }
 
 //Loops through every number in a block and checks for repetition
@@ -305,19 +304,6 @@ function isRepetition(id, boxValue, rowStart, rowEnd, colStart, colEnd){
 
     return false;
 }
-
-// function resizeNav(){
-//     var w = window.outerWidth;
-//     var gameTitle = document.getElementById("game-title");
-
-//     if(w < 487){
-//         gameTitle.style.fontSize = "40px";
-//     }
-//     else if(w >= 487)
-//         gameTitle.style.fontSize = "50px";
-
-// }
-
 //Randon number generator decides which boxes will get removed
 function removeNumbers(){
 
